@@ -1,0 +1,25 @@
+{
+  "name": "mynexthome",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r run dev",
+    "build": "pnpm -r run build",
+    "test": "pnpm -r run test",
+    "lint": "pnpm -r run lint",
+    "format": "prettier --write '**/*.{ts,tsx,json,md}'",
+    "type-check": "pnpm -r run type-check",
+    "db:generate": "pnpm -r run db:generate",
+    "db:push": "pnpm -r run db:push",
+    "db:seed": "pnpm -r run db:seed"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  }
+}

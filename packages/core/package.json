@@ -1,0 +1,24 @@
+{
+  "name": "@mynexthome/core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./listings-seed": "./src/listings-seed.ts"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^3.22.4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4"
+  }
+}
