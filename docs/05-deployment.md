@@ -67,7 +67,7 @@ vercel env add INTEGRATIONS_MODE
 # Input: mock
 
 vercel env add NEXT_PUBLIC_APP_URL
-# Input: https://<your-project>.vercel.app
+# Input: https://your-project.vercel.app
 ```
 
 ### Step 3: Deploy
@@ -81,7 +81,7 @@ vercel deploy
 
 ```bash
 vercel --prod logs
-# Then test at https://<your-project>.vercel.app
+# Then test at https://your-project.vercel.app
 ```
 
 ### Limitations & Workarounds
@@ -165,7 +165,7 @@ vercel deploy --prod
 **Option 1: Manual**
 
 ```bash
-vercel connect <project>
+vercel connect PROJECT_NAME
 # SSH into build, run: pnpm db:push
 ```
 
