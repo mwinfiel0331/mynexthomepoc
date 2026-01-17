@@ -5,7 +5,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./listings-seed": "./src/listings-seed.ts"
+    "./listings-seed-simple": "./src/listings-seed-simple.ts"
   },
   "scripts": {
     "build": "tsc",
@@ -13,11 +13,12 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "zod": "^3.22.4",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20.10.6",
+    "@types/uuid": "^11.0.0",
     "typescript": "^5.3.3",
     "vitest": "^1.0.4"
   }

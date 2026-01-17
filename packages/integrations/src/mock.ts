@@ -6,7 +6,7 @@ import {
   UserSearch,
   Listing,
 } from '@mynexthome/core';
-import { ALL_LISTINGS } from '@mynexthome/core/listings-seed';
+import { ALL_LISTINGS } from '@mynexthome/core/listings-seed-simple';
 
 /**
  * MOCK Listings Provider

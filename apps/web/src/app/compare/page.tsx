@@ -50,6 +50,7 @@ export default function Compare() {
       }
 
       try {
+        console.log('[COMPARE] Sending listing IDs for scoring:', listingIds); // Debug
         const response = await fetch('/api/score', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -70,10 +71,19 @@ export default function Compare() {
         });
 
         if (!response.ok) {
-          throw new Error('Failed to fetch scores');
+          const errorData = await response.json();
+          throw new Error(errorData.error?.message || 'Failed to fetch scores');
         }
 
         const data = await response.json();
+        console.log('Score response:', data); // Debug log
+        
+        if (!data.scores || data.scores.length === 0) {
+          setError('No scores could be calculated for the selected listings');
+          setLoading(false);
+          return;
+        }
+        
         setScores(data.scores);
         setListings(data.listings);
       } catch (err) {

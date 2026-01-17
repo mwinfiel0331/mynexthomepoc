@@ -151,6 +151,23 @@ export function generateId(): string {
   return uuidv4();
 }
 
+/**
+ * Create a deterministic UUID-like ID from a seed string
+ * Ensures same input always produces same ID (useful for mock data)
+ */
+export function generateDeterministicId(seed: string): string {
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    const char = seed.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & 0xffffffff; // Convert to 32bit integer
+  }
+  
+  const hex = Math.abs(hash).toString(16).padStart(32, '0');
+  // Format as UUID: 8-4-4-4-12
+  return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20, 32)}`;
+}
+
 export function normalizeWeights(
   weights?: Partial<typeof DEFAULT_WEIGHTS>
 ): typeof DEFAULT_WEIGHTS {
@@ -166,3 +183,17 @@ export function normalizeWeights(
     marketMomentum: merged.marketMomentum / sum,
   };
 }
+
+// Export scoring functions
+export {
+  calculateMonthlyPayment,
+  estimateMonthlyTaxesInsurance,
+  estimateTotalMonthlyPayment,
+  calculateAffordabilityScore,
+  calculateCommuteScore,
+  calculateNeighborhoodScore,
+  calculatePropertyQualityScore,
+  calculateMarketMomentumScore,
+  generateScoreReasons,
+  scoreListings,
+} from './scoring';

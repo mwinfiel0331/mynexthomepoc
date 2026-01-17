@@ -1,14 +1,15 @@
-import { Listing, generateId } from './index';
+import { Listing, generateDeterministicId } from './index';
 
 /**
  * Seed data: 150+ mock listings across Florida markets (Land O Lakes, Tampa, Orlando, Miami areas)
  * All addresses are masked for privacy.
+ * Uses deterministic IDs so same listings always get same IDs.
  */
 
 const SEED_LISTINGS: Listing[] = [
   // Land O Lakes, FL 34639
   {
-    id: generateId(),
+    id: generateDeterministicId('1234-Land O Lakes-34639-450000'),
     addressMasked: '1234 *** St, Land O Lakes, FL',
     city: 'Land O Lakes',
     state: 'FL',
@@ -30,7 +31,7 @@ const SEED_LISTINGS: Listing[] = [
     createdAt: new Date(),
   },
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '5678 *** Ln, Land O Lakes, FL',
     city: 'Land O Lakes',
     state: 'FL',
@@ -52,7 +53,7 @@ const SEED_LISTINGS: Listing[] = [
     createdAt: new Date(),
   },
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '9012 *** Dr, Land O Lakes, FL',
     city: 'Land O Lakes',
     state: 'FL',
@@ -75,7 +76,7 @@ const SEED_LISTINGS: Listing[] = [
   },
   // Westchase, FL 33626 (Tampa area)
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '2345 *** Way, Westchase, FL',
     city: 'Westchase',
     state: 'FL',
@@ -97,7 +98,7 @@ const SEED_LISTINGS: Listing[] = [
     createdAt: new Date(),
   },
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '6789 *** Court, Westchase, FL',
     city: 'Westchase',
     state: 'FL',
@@ -120,7 +121,7 @@ const SEED_LISTINGS: Listing[] = [
   },
   // Downtown Tampa, FL 33602
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '123 *** Ave, Tampa, FL',
     city: 'Tampa',
     state: 'FL',
@@ -142,7 +143,7 @@ const SEED_LISTINGS: Listing[] = [
     createdAt: new Date(),
   },
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '456 *** Blvd, Tampa, FL',
     city: 'Tampa',
     state: 'FL',
@@ -165,7 +166,7 @@ const SEED_LISTINGS: Listing[] = [
   },
   // Carrollwood, FL 33618 (Tampa area)
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '789 *** Rd, Carrollwood, FL',
     city: 'Carrollwood',
     state: 'FL',
@@ -187,7 +188,7 @@ const SEED_LISTINGS: Listing[] = [
     createdAt: new Date(),
   },
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '2468 *** Dr, Carrollwood, FL',
     city: 'Carrollwood',
     state: 'FL',
@@ -210,7 +211,7 @@ const SEED_LISTINGS: Listing[] = [
   },
   // Winter Park, FL 32789 (Orlando area)
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '111 *** Way, Winter Park, FL',
     city: 'Winter Park',
     state: 'FL',
@@ -232,7 +233,7 @@ const SEED_LISTINGS: Listing[] = [
     createdAt: new Date(),
   },
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '222 *** Ln, Winter Park, FL',
     city: 'Winter Park',
     state: 'FL',
@@ -255,7 +256,7 @@ const SEED_LISTINGS: Listing[] = [
   },
   // Maitland, FL 32751 (Orlando area)
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '333 *** Pkwy, Maitland, FL',
     city: 'Maitland',
     state: 'FL',
@@ -277,7 +278,7 @@ const SEED_LISTINGS: Listing[] = [
     createdAt: new Date(),
   },
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '444 *** Cir, Maitland, FL',
     city: 'Maitland',
     state: 'FL',
@@ -300,7 +301,7 @@ const SEED_LISTINGS: Listing[] = [
   },
   // Downtown Orlando, FL 32801
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '555 *** St, Orlando, FL',
     city: 'Orlando',
     state: 'FL',
@@ -322,7 +323,7 @@ const SEED_LISTINGS: Listing[] = [
     createdAt: new Date(),
   },
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '666 *** Ave, Orlando, FL',
     city: 'Orlando',
     state: 'FL',
@@ -345,7 +346,7 @@ const SEED_LISTINGS: Listing[] = [
   },
   // Coral Gables, FL 33134 (Miami area)
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '777 *** Pl, Coral Gables, FL',
     city: 'Coral Gables',
     state: 'FL',
@@ -367,7 +368,7 @@ const SEED_LISTINGS: Listing[] = [
     createdAt: new Date(),
   },
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '888 *** Rd, Coral Gables, FL',
     city: 'Coral Gables',
     state: 'FL',
@@ -390,7 +391,7 @@ const SEED_LISTINGS: Listing[] = [
   },
   // Brickell, Miami, FL 33131
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '999 *** Tower, Miami, FL',
     city: 'Miami',
     state: 'FL',
@@ -412,7 +413,7 @@ const SEED_LISTINGS: Listing[] = [
     createdAt: new Date(),
   },
   {
-    id: generateId(),
+    id: "temp",
     addressMasked: '1111 *** Blvd, Miami, FL',
     city: 'Miami',
     state: 'FL',
@@ -478,7 +479,7 @@ function generateAdditionalListings(): Listing[] {
     }
 
     additional.push({
-      id: generateId(),
+      id: "temp",
       addressMasked: `${Math.floor(Math.random() * 9000) + 1000} *** ${['St', 'Ave', 'Ln', 'Dr', 'Rd', 'Way', 'Cir'][Math.floor(Math.random() * 7)]}, ${zipInfo.city}, ${zipInfo.state}`,
       city: zipInfo.city,
       state: zipInfo.state,
@@ -504,4 +505,7 @@ function generateAdditionalListings(): Listing[] {
   return additional;
 }
 
-export const ALL_LISTINGS = [...SEED_LISTINGS, ...generateAdditionalListings()];
+export const ALL_LISTINGS = [...SEED_LISTINGS, ...generateAdditionalListings()].map((listing, index) => ({
+  ...listing,
+  id: generateDeterministicId(`listing-${index}-${listing.addressMasked}-${listing.zip}`),
+}));

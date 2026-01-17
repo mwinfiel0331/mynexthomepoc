@@ -29,6 +29,14 @@ export async function POST(request: NextRequest) {
     );
     const listings = allListings.filter((l) => l !== null);
 
+    if (listings.length === 0) {
+      console.error('[SCORE API] No listings found for IDs:', listingIds);
+      return NextResponse.json(
+        { error: { code: 'NOT_FOUND', message: 'No listings found for provided IDs' } },
+        { status: 404 }
+      );
+    }
+
     // Score each listing
     const scores = await Promise.all(
       listings.map(async (listing) => {
@@ -48,9 +56,11 @@ export async function POST(request: NextRequest) {
       })
     );
 
+    const validScores = scores.filter((s) => s !== null);
+
     return NextResponse.json({
       listings,
-      scores: scores.filter((s) => s !== null),
+      scores: validScores,
     });
   } catch (error) {
     if (error instanceof z.ZodError) {
