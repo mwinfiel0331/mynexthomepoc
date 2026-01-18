@@ -1,5 +1,4 @@
 # Requirements - My Next Home POC
-# stest
 ## Functional Requirements
 
 ### FR-1: Home Search
