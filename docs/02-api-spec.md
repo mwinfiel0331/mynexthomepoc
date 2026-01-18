@@ -420,7 +420,7 @@ No request body.
 
 ### Workflow 1: Search → Compare → Shortlist
 
-```
+```text
 1. POST /api/search
    → Get 20 homes matching "34639", $300k-$500k, 3+ bed
 
@@ -439,7 +439,7 @@ No request body.
 
 ### Workflow 2: Multiple Searches with Different Preferences
 
-```
+```text
 1. POST /api/search (Land O Lakes, $350k-$450k, 3 bed, "MEDIUM" risk)
 2. POST /api/score with top 2 homes
 3. POST /api/search (Tampa, $400k-$550k, 4 bed, "LOW" risk)

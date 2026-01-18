@@ -159,7 +159,7 @@ Contains 150+ listings across Florida markets:
 
 **Recommended strategy**:
 
-```
+```text
 User Search Request
     ↓
 Redis Cache Check (1-hour TTL)
@@ -182,7 +182,7 @@ Redis Cache Check (1-hour TTL)
 
 **Cache keys**:
 
-```
+```text
 # Search results (1 hour TTL)
 mynexthome:search:{hash(location,budget,beds,baths,mustHaves)}
 → { listings: [...], timestamp }
@@ -202,7 +202,7 @@ mynexthome:commute:{fromLat}:{fromLng}:{toAddress}
 
 **Refresh strategy**:
 
-```
+```text
 Nightly Cron Job (1 AM):
   ├─ For each popular ZIP/city:
   │   ├─ Fetch fresh neighborhood signals
@@ -361,7 +361,7 @@ psql -U user -d mynexthome -c "SELECT COUNT(*) FROM ShortlistedHome;"
 
 **Address masking** applied everywhere:
 
-```
+```text
 Real: 123 Elm Street, Land O Lakes, FL 34639
 Masked: 123 *** Street, Land O Lakes, FL 34639
 ```

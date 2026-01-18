@@ -2,7 +2,7 @@
 
 ## Test Pyramid
 
-```
+```text
          △
         /|\
        / | \

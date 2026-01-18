@@ -2,7 +2,7 @@
 
 ## C4 Context Diagram
 
-```
+```text
 ┌─────────────────────────────────────────────────────────┐
 │                    My Next Home POC                      │
 │  Helps users find homes by scoring fit based on prefs   │
@@ -25,7 +25,7 @@
 
 ## C4 Container Diagram
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │                     Monorepo Package Structure              │
 ├──────────────────────┬──────────────────────┬───────────────┤
@@ -62,7 +62,7 @@
 
 ## Data Flow: Search
 
-```
+```text
 User fills search form
          │
          ▼
@@ -91,7 +91,7 @@ Browser renders listing cards with checkboxes
 
 ## Data Flow: Scoring (Compare)
 
-```
+```text
 User selects 2-4 homes and clicks "Compare"
          │
          ▼
@@ -126,7 +126,7 @@ Browser renders comparison table + detailed score cards
 
 ## Data Flow: Shortlist
 
-```
+```text
 User clicks "Shortlist" on a home
          │
          ▼
@@ -157,7 +157,7 @@ DELETE /api/shortlist/:id → Delete item from DB
 
 ### Affordability Score (0-100)
 
-```
+```text
 Monthly Payment Estimate:
   Principal = price * (1 - down%)  [default 20%]
   Monthly = Principal * [r(1+r)^n] / [(1+r)^n - 1]
@@ -187,7 +187,7 @@ Reasons:
 
 ### Commute Score (0-100)
 
-```
+```text
 If commuteMaxMinutes is null:
   score = 75  [neutral]
 
@@ -209,7 +209,7 @@ Reasons:
 
 ### Neighborhood Score (0-100)
 
-```
+```text
 Weight by risk tolerance:
   LOW:    schools 40%, safety 40%, walkability 20%
   MEDIUM: schools 40%, safety 30%, walkability 30%
@@ -227,7 +227,7 @@ Reasons:
 
 ### Property Quality Score (0-100)
 
-```
+```text
 baseline = 50
 
 if yearBuilt is recent (< 5 years):  +20
@@ -251,7 +251,7 @@ Reasons:
 
 ### Market Momentum Score (0-100)
 
-```
+```text
 baseline = 50
 
 Days on Market:
@@ -278,7 +278,7 @@ Reasons:
 
 ### Overall Score
 
-```
+```text
 overall = affordability * 0.25
         + commute * 0.20
         + neighborhood * 0.25
@@ -353,7 +353,7 @@ model ShortlistedHome {
 
 ### Production Normalized Schema (Reference)
 
-```
+```text
 Listing
   id: UUID
   addressMasked: string
@@ -406,7 +406,7 @@ Score
 
 ### POC (Vercel + SQLite)
 
-```
+```text
 Browser → Vercel Edge Functions → Next.js API Routes → Prisma → SQLite
 ```
 
@@ -414,7 +414,7 @@ Works for < 1000 users, single region.
 
 ### Production (Vercel + PostgreSQL + Caching)
 
-```
+```text
 Browser → Vercel Edge
            ↓
         Next.js API

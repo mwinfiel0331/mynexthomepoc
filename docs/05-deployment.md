@@ -100,7 +100,7 @@ vercel --prod logs
 
 ### Architecture
 
-```
+```text
 GitHub (Push) → GitHub Actions (CI) → Vercel (Deploy)
                      ↓
                   pnpm build
@@ -450,7 +450,7 @@ GREATSCHOOLS_API_KEY=...
 
 ### Vercel Analytics (Built-in)
 
-```
+```text
 https://vercel.com/dashboard/[project]/analytics
 ```
 
@@ -504,13 +504,13 @@ Sentry.init({
 
 **Supabase**: Automatic daily backups (configurable retention)
 
-```
+```text
 Dashboard → Project Settings → Backups
 ```
 
 **Neon**: Automatic backups, point-in-time recovery
 
-```
+```text
 https://console.neon.tech/ → Backups
 ```
 
