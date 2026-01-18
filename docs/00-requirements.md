@@ -10,7 +10,7 @@
 - **FR-1.3**: Filter by bedrooms and bathrooms (minimum)
 - **FR-1.4**: Filter by must-have features (garage, pool, fenced yard, HOA, etc.)
 - **FR-1.5**: Return up to 20 results, sorted by price ascending
-- **FR-1.6**: Display key listing details (address, price, beds, baths, sqft, HOA, features)
+- **FR-1.6**: Display key listing details (address, price, beds, baths, sqft, HOA, features) test
 
 ### FR-2: Home Comparison & Scoring
 **User Goal**: Understand how well each home fits their needs via a "Next Home Score"
