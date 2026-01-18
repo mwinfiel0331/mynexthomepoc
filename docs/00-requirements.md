@@ -53,7 +53,7 @@
 
 - **FR-4.4**: Property Quality Score
   - Adjust for age (newer is better, old penalized)
-  - Size (bonus for >2500 sqft, penalty for <1200 sqft)
+  - Size (bonus for >2500 sqft, penalty for &lt;1200 sqft)
   - Features count
   - Property type (slight preference for single-family)
   - Reason: e.g., "3bd/2ba, 2000sqft with good features"
@@ -73,9 +73,9 @@
 ## Non-Functional Requirements
 
 ### NFR-1: Performance
-- Search completes < 500ms (in-memory filtering)
-- Scoring for 4 homes completes < 1s
-- Page load < 2s on 3G connection
+- Search completes &lt; 500ms (in-memory filtering)
+- Scoring for 4 homes completes &lt; 1s
+- Page load &lt; 2s on 3G connection
 
 ### NFR-2: Reliability
 - 99% uptime (POC)

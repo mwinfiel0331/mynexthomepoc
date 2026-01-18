@@ -26,7 +26,7 @@
 - **Unit Tests**: 70%+ coverage of core package
 - **Integration Tests**: Critical API paths
 - **E2E Tests**: 2-3 critical user workflows
-- **Total Execution Time**: < 2 minutes
+- **Total Execution Time**: &lt; 2 minutes
 
 ---
 
@@ -40,7 +40,7 @@ Run: `cd packages/core && pnpm test` or `pnpm test` from root
 
 #### Mortgage Calculations
 
-```typescript
+```ts
 describe('Mortgage Calculation', () => {
   it('should calculate monthly payment correctly', () => {
     // Known case: $450k home, 20% down, 6.5%, 30yr
@@ -76,7 +76,7 @@ describe('Mortgage Calculation', () => {
 
 #### Scoring Rules
 
-```typescript
+```ts
 describe('Affordability Scoring', () => {
   it('should score affordable homes high', () => {
     const search = { ...sampleSearch, budgetMax: 600000 };
@@ -94,7 +94,7 @@ describe('Affordability Scoring', () => {
 
 #### Neighborhood & Risk Tolerance
 
-```typescript
+```ts
 describe('Neighborhood Scoring', () => {
   it('should penalize low safety more for risk-averse users', () => {
     const lowRiskScore = calculateNeighborhoodScore(
@@ -112,7 +112,7 @@ describe('Neighborhood Scoring', () => {
 
 #### Determinism & Reproducibility
 
-```typescript
+```ts
 describe('Scoring Determinism', () => {
   it('should produce identical scores for identical inputs', () => {
     const score1 = scoreListings(listing, search, signals, market, 25);
@@ -142,7 +142,7 @@ Run: `cd apps/web && pnpm test` or `pnpm test` from root
 
 #### API Search Endpoint
 
-```typescript
+```ts
 describe('POST /api/search', () => {
   it('should return filtered listings', async () => {
     const response = await fetch('http://localhost:3000/api/search', {
@@ -194,7 +194,7 @@ describe('POST /api/search', () => {
 
 #### API Score Endpoint
 
-```typescript
+```ts
 describe('POST /api/score', () => {
   it('should compute deterministic scores for known listings', async () => {
     // Use seed listing IDs
@@ -278,7 +278,7 @@ Run: `cd apps/web && pnpm test:e2e` (after implementing Playwright setup)
 
 #### Scenario 1: Search → Compare → Shortlist
 
-```typescript
+```ts
 import { test, expect } from '@playwright/test';
 
 test.describe('Search → Compare → Shortlist Workflow', () => {
@@ -336,7 +336,7 @@ test.describe('Search → Compare → Shortlist Workflow', () => {
 
 #### Scenario 2: Shortlist Persistence
 
-```typescript
+```ts
 test('should persist shortlist across page reloads', async ({ page }) => {
   // 1. Shortlist a home (assuming from previous test)
   await page.goto('http://localhost:3000/shortlist');

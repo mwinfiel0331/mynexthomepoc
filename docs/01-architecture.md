@@ -230,12 +230,12 @@ Reasons:
 ```text
 baseline = 50
 
-if yearBuilt is recent (< 5 years):  +20
+if yearBuilt is recent (&lt; 5 years):  +20
 if yearBuilt is newer (5-20 years):   +10
 if yearBuilt is old (> 50 years):    -15
 
 if sqft > 2500:  +10
-if sqft < 1200:  -5
+if sqft &lt; 1200:  -5
 
 features_bonus = min(feature_count * 5, 15)
 
@@ -264,8 +264,8 @@ Inventory:
   if LOW:   -15
 
 Price Change YoY:
-  if < -2%:  +15  [buyer market]
-  if < 2%:   +5   [stable]
+  if &lt; -2%:  +15  [buyer market]
+  if &lt; 2%:   +5   [stable]
   if > 5%:   -10  [seller market]
 
 score = min(100, max(0, baseline + adjustments))
@@ -294,7 +294,7 @@ Top 3 Reasons: Select by highest subscores and include each score's reason
 
 ### Interfaces (packages/core)
 
-```typescript
+```ts
 interface ListingsProvider {
   search(query: UserSearch): Promise<Listing[]>
   getById(id: string): Promise<Listing | null>
@@ -410,7 +410,7 @@ Score
 Browser → Vercel Edge Functions → Next.js API Routes → Prisma → SQLite
 ```
 
-Works for < 1000 users, single region.
+Works for &lt; 1000 users, single region.
 
 ### Production (Vercel + PostgreSQL + Caching)
 
@@ -461,11 +461,11 @@ All API responses follow consistent schema:
 
 | Operation | Target | Notes |
 |-----------|--------|-------|
-| Search (20 results) | < 500ms | In-memory filtering |
-| Score 4 homes | < 1s | Parallel signal fetches |
-| Page load (3G) | < 2s | Includes Tailwind CSS, React hydration |
-| List shortlist | < 100ms | Direct DB query |
-| Add to shortlist | < 2s | Includes scoring |
+| Search (20 results) | &lt; 500ms | In-memory filtering |
+| Score 4 homes | &lt; 1s | Parallel signal fetches |
+| Page load (3G) | &lt; 2s | Includes Tailwind CSS, React hydration |
+| List shortlist | &lt; 100ms | Direct DB query |
+| Add to shortlist | &lt; 2s | Includes scoring |
 
 ## Testing Strategy
 

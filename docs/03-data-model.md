@@ -104,7 +104,7 @@ Single table for POC simplicity. Stores JSON blobs to avoid complex joins.
 
 ### Get all shortlisted homes (ordered by creation)
 
-```typescript
+```ts
 const items = await prisma.shortlistedHome.findMany({
   orderBy: { createdAt: 'desc' },
 });
@@ -112,7 +112,7 @@ const items = await prisma.shortlistedHome.findMany({
 
 ### Delete from shortlist
 
-```typescript
+```ts
 await prisma.shortlistedHome.delete({
   where: { id: 'clj6f9b9s0000qz7d9q8q8q8q' },
 });
@@ -120,7 +120,7 @@ await prisma.shortlistedHome.delete({
 
 ### Check if home is shortlisted
 
-```typescript
+```ts
 const existing = await prisma.shortlistedHome.findFirst({
   where: { listingId: '550e8400-e29b-41d4-a716-446655440000' },
 });
@@ -153,7 +153,7 @@ Contains 150+ listings across Florida markets:
 - No caching; all data computed on-demand
 - Search filters 150 listings in-memory (~5ms)
 - Scoring fetches mock signals deterministically
-- Suitable for < 100 concurrent users
+- Suitable for &lt; 100 concurrent users
 
 ### Production
 
@@ -343,7 +343,7 @@ psql -U user -d mynexthome -c "SELECT COUNT(*) FROM ShortlistedHome;"
 
 - Single file, local access
 - No concurrent writes (blocking)
-- Perfect for < 100 total users
+- Perfect for &lt; 100 total users
 - ~5ms query time
 
 ### Scaling to Production (PostgreSQL)
@@ -390,7 +390,7 @@ model ShortlistedHome {
 
 Implement with Prisma scheduled jobs:
 
-```typescript
+```ts
 // Delete old scores daily
 const thirtyDaysAgo = new Date(Date.now() - 90 * 24 * 60 * 60 * 1000);
 await prisma.score.deleteMany({

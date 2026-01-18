@@ -210,7 +210,7 @@ psql $DATABASE_URL -c "SELECT COUNT(*) FROM ShortlistedHome;"
 
 **Implementation**:
 
-```typescript
+```ts
 // packages/integrations/src/real.ts
 
 export class RealListingsProvider implements ListingsProvider {
@@ -273,7 +273,7 @@ export class RealListingsProvider implements ListingsProvider {
 
 **Implementation** (overview):
 
-```typescript
+```ts
 export class RealNeighborhoodSignalsProvider implements NeighborhoodSignalsProvider {
   async getSignals(zip: string, city: string, state: string) {
     const [schoolData, crimeData, walkability] = await Promise.all([
@@ -308,7 +308,7 @@ export class RealNeighborhoodSignalsProvider implements NeighborhoodSignalsProvi
 
 **Implementation** (overview):
 
-```typescript
+```ts
 export class RealMarketSignalsProvider implements MarketSignalsProvider {
   async getSignals(zip: string, city: string, state: string) {
     const [redfin, fhfa, mlsStats] = await Promise.all([
@@ -342,7 +342,7 @@ export class RealMarketSignalsProvider implements MarketSignalsProvider {
 
 **Implementation**:
 
-```typescript
+```ts
 export class RealCommuteTimeProvider implements CommuteTimeProvider {
   async getEstimatedMinutes(
     fromLat: number,
@@ -384,7 +384,7 @@ export class RealCommuteTimeProvider implements CommuteTimeProvider {
 
 **In code**:
 
-```typescript
+```ts
 // packages/integrations/src/index.ts
 
 export function getListingsProvider(): ListingsProvider {
@@ -463,7 +463,7 @@ Tracks:
 
 **Recommended**: Datadog, CloudWatch, or Splunk
 
-```typescript
+```ts
 // Example: add logger to API routes
 import pino from 'pino';
 
@@ -486,7 +486,7 @@ export async function POST(request: NextRequest) {
 
 **Recommended**: Sentry
 
-```typescript
+```ts
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({

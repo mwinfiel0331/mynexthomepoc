@@ -452,7 +452,7 @@ No request body.
 
 ## Data Types Reference
 
-```typescript
+```ts
 // Enums
 PropertyType = "SINGLE_FAMILY" | "TOWNHOME" | "CONDO"
 RiskTolerance = "LOW" | "MEDIUM" | "HIGH"
